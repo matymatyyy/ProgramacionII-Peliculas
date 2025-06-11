@@ -51,7 +51,13 @@ final readonly class EntertainmentRoutes {
             "name" => "id",
             "type" => "int"
           ]]
-        ]
+          ],
+          [
+          "name" => "entertainment_delete",
+          "url" => "/entertainments/delete",
+          "controller" => "Entertainment/EntertainmentDeleteController.php",
+          "method" => "POST"
+          ]
     ];
   }
 }

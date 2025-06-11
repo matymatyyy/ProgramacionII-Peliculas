@@ -107,6 +107,21 @@ final readonly class EntertainmentModel extends DatabaseModel{
         $this->primitiveQuery($query,$parameters);
     }
 
+    public function delete(int $id): void{
+        $query = <<< DELETE_QUERY
+                        DELETE FROM
+                            entertainment
+                        WHERE
+                            id = :id
+                        DELETE_QUERY;
+        $parameters = [
+            "id" => $id
+        ];
+
+        $this->primitiveQuery($query,$parameters);
+        
+    }
+
     private function toEntertainment(?array $primitive): ?Entertainment{
         if($primitive === null){
             return null;

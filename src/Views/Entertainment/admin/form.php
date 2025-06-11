@@ -10,5 +10,10 @@
         <input placeholder="Clasificaicon" type="number" name="qualification">
         <input type="submit">
     </form>
+<br>
+    <form action="/entertainments/delete" method="post">
+        <input type="text" name="id" placeholder="1">
+        <input type="submit">
+    </form>
 </body>
 </html>
