@@ -1,0 +1,23 @@
+pasos para hacer el mvc de esta carpeta, segun el profe:
+1)crear entidad/DTO
+2)crear modelo
+3)creo el servicio
+4)creo el controlador
+5)creo la vista
+6)creo la ruta
+todo esto ya tiene le router y la base de datos funcionando ya...
+
+pasos para crear rutas post,put,delete segun el profe...
+1)cambiar repositorio(modelo) (crear el create en el modelo nomas)
+2)crear servicio
+3)vereficar entidad/DTO (ver si tiene los atributos necesarios)
+4)crear controlador
+
+nota:cuando trabajamos con post,put,delete enviamos por dentro objetos no primitivos
+
+tarea:
+php
+user model
+user login service
+admin login controller
+view

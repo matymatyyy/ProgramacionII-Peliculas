@@ -1,0 +1,161 @@
+body{
+    background-color: rgb(28, 28, 29);
+    margin: 0px;
+    padding-top: 3em;
+}
+body::-webkit-scrollbar { /* desabilitar la visibilidad del scroll */
+    display: none; /* Para Chrome, Safari y Opera */
+}
+
+.navBar{
+    background: #222;
+    display: flex;
+    width: 100%;
+    height: 10%;
+    position: fixed; /* Fija la navbar en la pantalla */
+    top: 0;          /* La pega arriba */
+    z-index: 1000; /* para que el hover no se interponga */
+} 
+
+.logo-nav{
+    width: 3em;
+    height: 2em;
+}
+
+.text-nav{
+    margin: 1.2em;
+    color: white;
+    display: inline-flex;
+}
+
+.text-nav a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.text-nav a:hover {
+    color: white;
+}
+
+.seccion{
+    margin: 2em;
+}
+
+.content{
+    display: flex;
+    gap: 10px; 
+    overflow-x: auto; /* es para el scroll horizontal */
+    overflow-y: hidden;    /* Bloquea scroll vertical */
+    padding: 10px;
+}
+
+.content::-webkit-scrollbar { /* desabilitar la visibilidad del scroll */
+    display: none; /* Para Chrome, Safari y Opera */
+}
+
+.movies-title {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.img-content{
+    height: 17em;
+    width: 11em;
+}
+
+.img-content:hover {
+    transform: scale(1.15);
+}
+
+.MenuHambur{
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: none;
+    margin: 0 10px;
+}
+
+.img_movie{
+    width: 10em;
+    height: 10em;
+}
+
+.hidden{ /* nadie usa esto */
+    display: none;
+    
+}
+
+.simple-footer {
+    background: #222;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+@media (max-width: 768px) { /* maximo de 768px pantallas chicas */
+    .text-nav {
+        display: none; 
+    }
+
+    .MenuHambur{
+        display: flex;
+    }
+}
+
+/* configuraciones del detail */
+
+/* Contenedor principal con margen superior */
+.split-screen { /* usamos ayudita gpt... */
+  display: flex;
+  height: calc(100vh - 60px); /* Resta la altura del nav */
+  width: 100%;
+}
+
+/* Paneles */
+.left-pane {
+  flex: 0.7; /* 70% */
+  padding: 20px;
+  overflow-y: auto; /* para contenido desplazable */
+}
+
+.right-pane {
+  flex: 0.3;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.image-detail{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* o 'contain' */
+    object-position: center;
+}
+
+.image-detail::-webkit-scrollbar { /* desabilitar la visibilidad del scroll */
+    display: none; /* Para Chrome, Safari y Opera */
+}

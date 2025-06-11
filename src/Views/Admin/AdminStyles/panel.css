@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.All {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Panel izquierdo (inicialmente visible) */
+.PanelLeft {
+    flex: 0.3;
+    background: blue;
+    color: white;
+    transition: all 0.3s ease; /* Animación suave */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Cuando está colapsado */
+.PanelLeft.collapsed {
+    flex: 0.09;
+    width: 0.09;
+}
+
+/* Botón para expandir/colapsar */
+#toggleButton {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/* Panel derecho (contenido principal) */
+.PanelRight {
+    flex: 1;
+    background: red;
+    padding: 20px;
+}
