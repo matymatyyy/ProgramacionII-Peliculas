@@ -10,7 +10,6 @@ final readonly class AdminLoginViewController extends ViewController{
     }
 
     public function start(): void{
-        var_dump($_SESSION);
         parent::call("");
     }
 }
