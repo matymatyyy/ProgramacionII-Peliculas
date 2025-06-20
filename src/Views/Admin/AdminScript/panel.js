@@ -6,8 +6,8 @@ toggleButton.addEventListener("click", () => {
     
     // Cambiar el texto del botón
     if (panelLeft.classList.contains("collapsed")) {
-        toggleButton.textContent = "Mostrar";
+        toggleButton.textContent = ">";
     } else {
-        toggleButton.textContent = "Ocultar";
+        toggleButton.textContent = "<";
     }
 });

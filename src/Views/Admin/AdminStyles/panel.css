@@ -13,7 +13,7 @@ body {
 /* Panel izquierdo (inicialmente visible) */
 .PanelLeft {
     flex: 0.3;
-    background: blue;
+    background: rgb(20, 20, 20);
     color: white;
     transition: all 0.3s ease; /* Animación suave */
     overflow: hidden;
@@ -41,6 +41,27 @@ body {
 /* Panel derecho (contenido principal) */
 .PanelRight {
     flex: 1;
-    background: red;
+    background: rgb(24, 23, 23);
     padding: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.btn i {
+  font-size: 1rem;
 }
