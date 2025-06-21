@@ -25,7 +25,13 @@ final readonly class AdminRoutes {
         "name" => "admin_panel_view",
         "url" => "/admin/panel",
         "controller" => "Admin/AdminPanelViewController.php",
-        "method" => "GET"
+        "method" => "GET",
+        "parameters" => [
+          [
+            "name" => "page",
+            "type" => "int"
+          ]
+        ]
       ]
     ];
   }

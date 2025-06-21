@@ -58,6 +58,42 @@ final readonly class EntertainmentModel extends DatabaseModel{
             return $objest;
     }
 
+    public function searchByCriterial(int $limit, int $ofset): array
+    {
+        $query = <<<SELECT_QUERY
+                    SELECT
+                        E.id,
+                        E.type,
+                        E.release_date,
+                        E.ending,
+                        E.name,
+                        E.description,
+                        E.qualification,
+                        E.image,
+                        C.name AS category_name,
+                        P.name AS platform_name,
+                        P.logo AS platform_logo,
+                        P.website AS platform_website
+                    FROM
+                        entertainment E
+                    INNER JOIN 
+                        category C ON E.id_category = C.id
+                    INNER JOIN 
+                        platform P ON E.id_platform = P.id
+                    LIMIT $limit OFFSET $ofset
+                SELECT_QUERY;
+
+            $primity_result = $this->primitiveQuery($query);
+
+           $objest = [];
+        
+            foreach ($primity_result as $primity_objet) {
+                $objest[] = $this->toEntertainment($primity_objet);
+            }
+
+            return $objest;
+    }
+
     public function insert(Entertainment $entretainment): void{
         $query= <<<INSERT_QUERY
                         INSERT INTO
