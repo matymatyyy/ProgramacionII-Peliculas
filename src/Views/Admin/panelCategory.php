@@ -18,7 +18,7 @@
     </button>
     <br><br>
     <div class="content">
-        <button class="menu-btn"onclick="window.location.href='http://localhost:91/admin/panel/1'">
+        <button class="menu-btn" onclick="window.location.href='http://localhost:91/admin/panel/1'">
         <i class="bi bi-film"></i>
         <span class="label">Películas</span>
         </button>
@@ -39,8 +39,8 @@
                 <div class="card mt-4">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-3">
-                    <button class="btn btn-success" onclick="window.location.href='http://localhost:91/admin/entertainments/create'"><i class="bi bi-plus-circle"></i></button>
-                    <h4 class="text-center flex-grow-1">Lista de Peliculas</h4>
+                    <button class="btn btn-success" onclick="window.location.href='http://localhost:91/admin/categorys/create'"><i class="bi bi-plus-circle"></i></button>
+                    <h4 class="text-center flex-grow-1">Lista de Categorías</h4>
                     <input type="text" class="form-control w-25" placeholder="Buscar">
                     </div>
 
@@ -57,21 +57,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($data["entertaiments"] as $entertaiments) { ?>
-                        <tr>
-                            <td><?php echo $entertaiments->id() ?></td>
-                            <td><?php echo $entertaiments->name() ?></td>
-                            <td><?php echo $entertaiments->type() ?></td>
-                            <td><?php echo $entertaiments->ending() ?></td>
-                            <td><?php echo $entertaiments->release_date()->format("Y-m-d H:i:s") ?></td>
-                            <td><img src="<?php echo $entertaiments->image() ?>" class="rounded-circle" alt="avatar"></td>
-                        <td>
-                            <button class="btn btn-success btn-sm" onclick="window.location.href='http://localhost:91/entertainments/<?php echo $entertaiments->id() ?>'"><i class="bi bi-eye"></i></button>
-                            <button class="btn btn-warning btn-sm" onclick="window.location.href='http://localhost:91/admin/entertainments/update/<?php echo $entertaiments->id() ?>'"><i class="bi bi-pencil"></i></button>
-                            <button class="btn btn-danger btn-sm" onclick="eliminarItem(<?php echo $entertaiments->id() ?>)"><i class="bi bi-trash"></i></button>
-                        </td>
-                        </tr>
-                        <?php } ?>
+                        
                     </tbody>
                     </table>
 
@@ -79,15 +65,7 @@
                     <span>Mostrando registros del 1 al ? de un total de ? registros</span>
                     <nav>
                         <ul class="pagination mb-0">
-                            <?php $page = $data["page"];
-                            if ($page > 1) { ?>
-                               <li class="page-item"><a class="page-link" href="
-                               <?php echo "http://localhost:91/admin/panel/".$page - 1 ?>">Anterior</a></li>
-                            <?php } ?>
-                        <li class="page-item active"><a class="page-link" href="#"><?php echo $page ?></a></li>
-                        <?php if (count($data["entertaiments"]) > 5){ ?>
-                            <li class="page-item"><a class="page-link" href="<?php echo "http://localhost:91/admin/panel/".$page + 1 ?>">Siguiente</a></li>
-                            <?php } ?>
+                            <p>aca va la paginacion</p>
                         </ul>
                     </nav>
                     </div>

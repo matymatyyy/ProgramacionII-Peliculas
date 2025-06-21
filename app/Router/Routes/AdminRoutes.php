@@ -32,7 +32,31 @@ final readonly class AdminRoutes {
             "type" => "int"
           ]
         ]
-      ]
+          ],
+          [
+        "name" => "admin_panelCategory_view",
+        "url" => "/admin/panelCategory",
+        "controller" => "Admin/AdminPanelCategoryViewController.php",
+        "method" => "GET",
+        "parameters" => [
+          [
+            "name" => "page",
+            "type" => "int"
+          ]
+        ]
+          ],
+          [
+        "name" => "admin_panelPlatform_view",
+        "url" => "/admin/panelPlatform",
+        "controller" => "Admin/AdminPanelPlatformViewController.php",
+        "method" => "GET",
+        "parameters" => [
+          [
+            "name" => "page",
+            "type" => "int"
+          ]
+        ]
+          ]
     ];
   }
 }

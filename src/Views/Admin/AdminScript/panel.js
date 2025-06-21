@@ -4,7 +4,6 @@ const toggleButton = document.getElementById("arrow");
 toggleButton.addEventListener("click", () => {
     panelLeft.classList.toggle("collapsed");
 
-    // Cambiar el icono del botón
     if (panelLeft.classList.contains("collapsed")) {
         toggleButton.classList.remove("bi-arrow-bar-left");
         toggleButton.classList.add("bi-arrow-bar-right");
@@ -13,3 +12,28 @@ toggleButton.addEventListener("click", () => {
         toggleButton.classList.add("bi-arrow-bar-left");
     }
 });
+
+function eliminarItem(id) {
+  if (!confirm("¿Estas seguro de eliminar el item " + id + "?")) return;
+
+  fetch('http://localhost:91/entertainments/delete', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: 'id=' + id
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Eliminado con éxito');
+      location.reload(); 
+    } else {
+      alert('Error al eliminar: ' + data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Error en la petición:', error);
+    alert('Ocurrió un error inesperado');
+  });
+}
