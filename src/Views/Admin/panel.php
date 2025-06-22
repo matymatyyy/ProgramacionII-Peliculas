@@ -68,7 +68,7 @@
                         <td>
                             <button class="btn btn-success btn-sm" onclick="window.location.href='http://localhost:91/entertainments/<?php echo $entertaiments->id() ?>'"><i class="bi bi-eye"></i></button>
                             <button class="btn btn-warning btn-sm" onclick="window.location.href='http://localhost:91/admin/entertainments/update/<?php echo $entertaiments->id() ?>'"><i class="bi bi-pencil"></i></button>
-                            <button class="btn btn-danger btn-sm" onclick="eliminarItem(<?php echo $entertaiments->id() ?>)"><i class="bi bi-trash"></i></button>
+                            <button class="btn btn-danger btn-sm" onclick="eliminarItem(<?php echo $entertaiments->id() ?>,1)"><i class="bi bi-trash"></i></button>
                         </td>
                         </tr>
                         <?php } ?>

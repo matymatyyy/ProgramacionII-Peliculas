@@ -36,7 +36,9 @@ final readonly class PlatformModel extends DatabaseModel{
         $query = <<<SELECT_QUERY
                     SELECT
                         P.id,
-                        P.name
+                        P.name,
+                        P.logo,
+                        P.website
                     FROM
                         platform P
                 SELECT_QUERY;
@@ -50,6 +52,12 @@ final readonly class PlatformModel extends DatabaseModel{
         }
 
         return $objetsResult;
+    }
+
+    public function searchByCriterial(int $limit, int $ofset): array
+    {
+        #falta hacer xd
+        return array();
     }
 
     public function insert(Platform $platform): void{
@@ -85,6 +93,20 @@ final readonly class PlatformModel extends DatabaseModel{
             "logo" => $platform->logo(),
             "website" => $platform->website(),
             "id" => $platform->id()
+        ];
+
+        $this->primitiveQuery($query,$parameters);
+    }
+
+    public function delete(int $id):void{
+        $query = <<< DELETE_QUERY
+                        DELETE FROM
+                            platform
+                        WHERE
+                            id = :id
+                        DELETE_QUERY;
+        $parameters = [
+            "id" => $id
         ];
 
         $this->primitiveQuery($query,$parameters);

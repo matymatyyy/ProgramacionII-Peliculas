@@ -55,7 +55,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach ($data["platform"] as $platform) { ?>
+                        <tr>
+                            <td><?php echo $platform->id() ?></td>
+                            <td><?php echo $platform->name() ?></td>
+                            <td><?php echo $platform->logo() ?></td>
+                            <td><?php echo $platform->website() ?></td>
+                            <td><button class="btn btn-success btn-sm" onclick="window.location.href='http://localhost:91/platforms/<?php echo $platform->id() ?>'"><i class="bi bi-eye"></i></button>
+                            <button class="btn btn-warning btn-sm" onclick="window.location.href='http://localhost:91/admin/platforms/update/<?php echo $platform->id() ?>'"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-danger btn-sm" onclick="eliminarItem(<?php echo $platform->id() ?>,3)"><i class="bi bi-trash"></i></button>
+                        </td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                     </table>
 

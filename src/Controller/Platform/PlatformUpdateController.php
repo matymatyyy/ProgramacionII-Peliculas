@@ -9,6 +9,7 @@ final readonly class PlatformUpdateController extends ViewController{
     }
 
     public function start(int $id) : void {
+        $this->validateUser();
         $platform = $this->service->find($id);
 
         $data = [

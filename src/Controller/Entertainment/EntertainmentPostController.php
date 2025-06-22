@@ -1,7 +1,6 @@
 <?php 
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/src/Controller/SesionController.php';
-use Src\Utils\ControllerUtils;
 use Src\Service\Entertainment\EntertainmentCreatorService;
 
 final readonly class EntertainmentPostController extends SesionController {
@@ -23,6 +22,7 @@ final readonly class EntertainmentPostController extends SesionController {
         $description = $_POST["description"];
         $qualification = $_POST["qualification"];
         $this->service->create($type,$relase_date,$ending,$name,$description,$qualification,$image);
-        header("Location: /entertainments");
+        header('Location: http://localhost:91/admin/panel/1');
+        exit();
     }
 }

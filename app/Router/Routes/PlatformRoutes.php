@@ -59,6 +59,12 @@ final readonly class PlatformRoutes
           ]
         ]
       ],
+      [
+          "name" => "platform_delete",
+          "url" => "/platforms/delete",
+          "controller" => "Platform/PlatformDeleteController.php",
+          "method" => "POST"
+      ],
     ];
   }
 }

@@ -9,6 +9,7 @@ final readonly class CategoryCreateController extends ViewController{
     }
 
     public function start(): void {
+        $this->validateUser();
         parent::call([]);
     }
 }

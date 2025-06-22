@@ -14,6 +14,7 @@ final readonly class EntertainmentUpdateController extends ViewController {
 
     public function start(int $id): void 
     {
+        $this->validateUser();
         $entertainment = $this->service->find($id);
         
         $data = [

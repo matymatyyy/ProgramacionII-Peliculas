@@ -14,5 +14,7 @@ final readonly class PlatformPutController extends SesionController{
         $logo = $_POST["logo"];
         $website = $_POST["website"];
         $this->service->update($id,$name,$logo,$website);
+        header('Location: http://localhost:91/admin/panelPlatform/1');
+        exit();
     }
 }

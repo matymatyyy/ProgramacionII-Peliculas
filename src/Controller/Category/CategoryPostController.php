@@ -1,10 +1,9 @@
 <?php 
 
 use Src\Service\Category\CategoryCreatorService;
-use Src\Utils\ControllerUtils;
+include_once $_SERVER["DOCUMENT_ROOT"].'/src/Controller/SesionController.php';
 
-
-final readonly class CategoryPostController {
+final readonly class CategoryPostController extends SesionController{
     private CategoryCreatorService $service;
 
     public function __construct() {
@@ -13,8 +12,10 @@ final readonly class CategoryPostController {
 
     public function start(): void 
     {
+        $this->validateUser();
         $name= $_POST["name"];
         $this->service->create($name);
-        header("Location: /categorys");
+        header('Location: http://localhost:91/admin/panelCategory/1');
+        exit();
     }
 }

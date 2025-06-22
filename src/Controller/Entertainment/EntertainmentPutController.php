@@ -1,8 +1,9 @@
 <?php
 
 use Src\Service\Entertainment\EntertainmentUpdaterService;
+include_once $_SERVER["DOCUMENT_ROOT"].'/src/Controller/SesionController.php';
 
-final readonly class EntertainmentPutController {
+final readonly class EntertainmentPutController extends SesionController{
     private EntertainmentUpdaterService $service;
 
     public function __construct() {
@@ -10,6 +11,7 @@ final readonly class EntertainmentPutController {
     }
 
     public function start(int $id): void {
+        $this->validateUser();
         $type = $_POST["type"] ?? null;
         $release_date = $_POST["release_date"] ?? null;
         $release_date = new DateTime($release_date);
@@ -20,6 +22,7 @@ final readonly class EntertainmentPutController {
         $qualification = $_POST["qualification"] ?? null;
 
         $this->service->update($id,$type, $release_date, $ending, $name, $description, $qualification, $image);
-        header("Location: /entertainments");
+        header('Location: http://localhost:91/admin/panel/1');
+        exit();
     }
 }

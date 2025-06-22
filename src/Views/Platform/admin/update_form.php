@@ -6,34 +6,7 @@
   <!-- Bootstrap + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .form-control {
-      margin-bottom: 1rem;
-    }
-
-    .btn-submit {
-      width: 100%;
-    }
-  </style>
+  <link rel="stylesheet" href="/src/Views/Platform/PlatformStyles/update_form.css">
 </head>
 <body>
 

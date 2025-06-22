@@ -53,7 +53,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach ($data["category"] as $category) { ?>
+                        <tr>
+                            <td><?php echo $category->id() ?></td>
+                            <td><?php echo $category->name() ?></td>
+                            <td><button class="btn btn-success btn-sm" onclick="window.location.href='http://localhost:91/categorys/<?php echo $category->id() ?>'"><i class="bi bi-eye"></i></button>
+                            <button class="btn btn-warning btn-sm" onclick="window.location.href='http://localhost:91/admin/categorys/update/<?php echo $category->id() ?>'"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-danger btn-sm" onclick="eliminarItem(<?php echo $category->id() ?>,2)"><i class="bi bi-trash"></i></button>
+                        </td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                     </table>
 

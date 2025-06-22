@@ -1,10 +1,11 @@
 <?php
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/src/Controller/ViewController.php';
-
+use Src\Service\Category\CategorySearchService;
 final readonly class AdminPanelCategoryViewController extends ViewController{
-
+    private CategorySearchService $service;
     public function __construct(){
+        $this->service = new CategorySearchService();
         parent::__construct("Admin/panelCategory");
     }
 
@@ -16,8 +17,10 @@ final readonly class AdminPanelCategoryViewController extends ViewController{
         }
         $limit = 6;
         $ofset = ($page - 1) * $limit; 
+        $category = $this->service->CategorySearchService();
         $data = [
-            "page" => $page
+            "page" => $page,
+            "category" => $category
         ];
         parent::call($data);
     }

@@ -7,6 +7,7 @@ final readonly class PlatformCreateController extends ViewController{
     }
 
     public function start() : void {
+        $this->validateUser();
         parent::call("");
     }
 }

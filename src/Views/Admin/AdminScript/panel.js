@@ -13,10 +13,24 @@ toggleButton.addEventListener("click", () => {
     }
 });
 
-function eliminarItem(id) {
+function eliminarItem(id, type) {
   if (!confirm("¿Estas seguro de eliminar el item " + id + "?")) return;
-
-  fetch('http://localhost:91/entertainments/delete', {
+  entidad = "";
+  switch (type) {
+    case 1:
+      entidad = "entertainments"
+      break;
+    case 2:
+      entidad = "categorys"
+      break;
+    case 3:
+      entidad = "platforms"
+      break;
+    default:
+      break;
+  }
+  console.log(entidad)
+  fetch('http://localhost:91/'+entidad+'/delete', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'

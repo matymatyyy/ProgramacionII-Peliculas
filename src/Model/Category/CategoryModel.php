@@ -47,6 +47,12 @@ final readonly class CategoryModel extends DatabaseModel{
             return $objest;
     }
 
+    public function searchByCriterial(int $limit, int $ofset): array
+    {
+        #falta hacer xd
+        return array();
+    }
+
     public function insert(Category $category) : void {
         $query= <<<INSERT_QUERY
                         INSERT INTO
@@ -75,6 +81,20 @@ final readonly class CategoryModel extends DatabaseModel{
         $parameters = [
             "name" => $category->name(),
             "id" => $category->id()
+        ];
+
+        $this->primitiveQuery($query,$parameters);
+    }
+
+    public function delete(int $id):void{
+        $query = <<< DELETE_QUERY
+                        DELETE FROM
+                            category
+                        WHERE
+                            id = :id
+                        DELETE_QUERY;
+        $parameters = [
+            "id" => $id
         ];
 
         $this->primitiveQuery($query,$parameters);

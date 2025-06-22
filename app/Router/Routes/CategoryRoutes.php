@@ -56,7 +56,13 @@ final readonly class CategoryRoutes {
             "type" => "int"
           ]
         ]
-      ]
+          ],          
+          [
+          "name" => "category_delete",
+          "url" => "/categorys/delete",
+          "controller" => "Category/CategoryDeleteController.php",
+          "method" => "POST"
+          ]
     ];
   }
 }
