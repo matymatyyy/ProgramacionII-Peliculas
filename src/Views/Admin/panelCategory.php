@@ -49,10 +49,6 @@
                         <tr>
                         <th>#</th>
                         <th>Nombre</th>
-                        <th>tipo</th>
-                        <th>final</th>
-                        <th>fecha de saldia</th>
-                        <th>imagen</th>
                         <th>Acciones</th>
                         </tr>
                     </thead>

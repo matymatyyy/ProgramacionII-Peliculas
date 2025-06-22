@@ -39,7 +39,7 @@
                 <div class="card mt-4">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-3">
-                    <button class="btn btn-success" onclick="window.location.href='http://localhost:91/admin/entertainments/create'"><i class="bi bi-plus-circle"></i></button>
+                    <button class="btn btn-success" onclick="window.location.href='http://localhost:91/admin/platforms/create'"><i class="bi bi-plus-circle"></i></button>
                     <h4 class="text-center flex-grow-1">Lista de Plataformas</h4>
                     <input type="text" class="form-control w-25" placeholder="Buscar">
                     </div>
@@ -49,10 +49,8 @@
                         <tr>
                         <th>#</th>
                         <th>Nombre</th>
-                        <th>tipo</th>
-                        <th>final</th>
-                        <th>fecha de saldia</th>
-                        <th>imagen</th>
+                        <th>logo</th>
+                        <th>website</th>
                         <th>Acciones</th>
                         </tr>
                     </thead>

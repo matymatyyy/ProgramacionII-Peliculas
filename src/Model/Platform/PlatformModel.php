@@ -10,7 +10,9 @@ final readonly class PlatformModel extends DatabaseModel{
         $query = <<<SELECT_QUERY
                     SELECT
                         P.id,
-                        P.name
+                        P.name,
+                        P.logo,
+                        P.website
                     FROM
                         platform P
                     WHERE
@@ -49,6 +51,44 @@ final readonly class PlatformModel extends DatabaseModel{
 
         return $objetsResult;
     }
+
+    public function insert(Platform $platform): void{
+        $query = <<<INSERT_QUERY
+                    INSERT INTO
+                        platform
+                    (name, logo, website)
+                    VALUES
+                        (:name, :logo, :website)
+                INSERT_QUERY;
+
+        $parameters=[
+            "name" => $platform->name(),
+            "logo" => $platform->logo(),
+            "website" => $platform->website()
+        ];
+
+        $this->primitiveQuery($query,$parameters);
+    }
+
+    public function update(Platform $platform): void{
+        $query =<<< UPDATE_QUERY
+                        UPDATE
+                            platform
+                        SET
+                            name= :name, logo= :logo, website= :website
+                        WHERE
+                            id = :id
+                        UPDATE_QUERY;
+
+        $parameters=[
+            "name" => $platform->name(),
+            "logo" => $platform->logo(),
+            "website" => $platform->website(),
+            "id" => $platform->id()
+        ];
+
+        $this->primitiveQuery($query,$parameters);
+    }
     public function toPlatform(array $primitive): ?Platform{
         if ($primitive === null) {
             return null;
@@ -56,7 +96,9 @@ final readonly class PlatformModel extends DatabaseModel{
 
         return new Platform(
             $primitive["id"],
-            $primitive["name"]
+            $primitive["name"],
+            $primitive["logo"],
+            $primitive["website"]
         );
     }
 }
