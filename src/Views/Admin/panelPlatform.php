@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/Views/Admin/AdminStyles/panel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Panel</title>
+    <title>Panel Plataformas</title>
 </head>
 <body>
-
+<a href="/admin/logout" class="btn btn-outline-secondary btn-sm position-absolute" style="top: 0.5rem; right: 0.5rem;">
+  <i class="bi bi-arrow-left"></i> Cerrar Sesion
+</a>
     <div class="All">
-        <!-- Panel izquierdo (ocultable) -->
     <div class="PanelLeft" id="panelLeft">
     <button id="toggleButton">
         <span class="label">Panel</span>
@@ -33,7 +34,7 @@
     </div>  
     </div>
 
-        <!-- Panel derecho (contenido principal) -->
+        
         <div class="PanelRight">
             <div class="container py-4">
                 <div class="card mt-4">
@@ -71,10 +72,23 @@
                     </table>
 
                     <div class="d-flex justify-content-between align-items-center">
-                    <span>Mostrando registros del 1 al ? de un total de ? registros</span>
+                    <span>
+                            Mostrando registros del 
+                            <?php echo 1 + 6 * ($data["page"] - 1); ?> 
+                            al 
+                            <?php echo 6 * ($data["page"] - 1) + count($data["platform"]); ?> 
+                        </span>
                     <nav>
                         <ul class="pagination mb-0">
-                            <p>aca va la paginacion</p>
+                            <?php $page = $data["page"];
+                            if ($page > 1) { ?>
+                               <li class="page-item"><a class="page-link" href="
+                               <?php echo "http://localhost:91/admin/panelPlatform/".$page - 1 ?>">Anterior</a></li>
+                            <?php } ?>
+                        <li class="page-item active"><a class="page-link" href="#"><?php echo $page ?></a></li>
+                        <?php if (count($data["platform"]) > 5){ ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo "http://localhost:91/admin/panelPlatform/".$page + 1 ?>">Siguiente</a></li>
+                            <?php } ?>
                         </ul>
                     </nav>
                     </div>

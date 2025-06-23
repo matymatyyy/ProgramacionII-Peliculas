@@ -56,8 +56,26 @@ final readonly class PlatformModel extends DatabaseModel{
 
     public function searchByCriterial(int $limit, int $ofset): array
     {
-        #falta hacer xd
-        return array();
+        $query = <<<SELECT_QUERY
+                    SELECT
+                        P.id,
+                        P.name,
+                        P.logo,
+                        P.website
+                    FROM
+                        platform P
+                    LIMIT $limit OFFSET $ofset
+                SELECT_QUERY;
+
+        $result = $this->primitiveQuery($query);
+        
+        $objetsResult= [];
+
+        foreach ($result as $objets) {
+            $objetsResult[]= $this->toPlatform($objets);
+        }
+
+        return $objetsResult;
     }
 
     public function insert(Platform $platform): void{

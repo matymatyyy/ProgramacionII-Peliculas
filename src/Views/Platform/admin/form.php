@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="/src/Views/Platform/PlatformStyles/form.css">
 </head>
 <body>
-
+<a href="/admin/panelPlatform/1" class="btn btn-outline-secondary btn-sm position-absolute" style="top: 0.5rem; right: 0.5rem;">
+  <i class="bi bi-arrow-left"></i> Volver
+</a>
   <div class="form-container">
     <h2><i class="bi bi-tv"></i> Nueva Plataforma</h2>
     <form method="POST" action="/platforms">

@@ -69,6 +69,34 @@ final readonly class EntertainmentModel extends DatabaseModel{
                         E.name,
                         E.description,
                         E.qualification,
+                        E.image
+                    FROM
+                        entertainment E
+                    LIMIT $limit OFFSET $ofset
+                SELECT_QUERY;
+
+            $primity_result = $this->primitiveQuery($query);
+
+           $objest = [];
+        
+            foreach ($primity_result as $primity_objet) {
+                $objest[] = $this->toEntertainment($primity_objet);
+            }
+
+            return $objest;
+    }
+
+    public function searchForUpdate():array{
+        $query = <<<SELECT_QUERY
+                    SELECT
+                        COUNT(E.id) as total,
+                        E.id,
+                        E.type,
+                        E.release_date,
+                        E.ending,
+                        E.name,
+                        E.description,
+                        E.qualification,
                         E.image,
                         C.name AS category_name,
                         P.name AS platform_name,
@@ -80,7 +108,6 @@ final readonly class EntertainmentModel extends DatabaseModel{
                         category C ON E.id_category = C.id
                     INNER JOIN 
                         platform P ON E.id_platform = P.id
-                    LIMIT $limit OFFSET $ofset
                 SELECT_QUERY;
 
             $primity_result = $this->primitiveQuery($query);

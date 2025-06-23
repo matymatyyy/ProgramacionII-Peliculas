@@ -49,8 +49,24 @@ final readonly class CategoryModel extends DatabaseModel{
 
     public function searchByCriterial(int $limit, int $ofset): array
     {
-        #falta hacer xd
-        return array();
+        $query = <<<SELECT_QUERY
+                    SELECT
+                        C.id,
+                        C.name
+                    FROM
+                        category C
+                    LIMIT $limit OFFSET $ofset
+                SELECT_QUERY;
+
+        $primity_result = $this->primitiveQuery($query);
+
+        $objest=[];
+        
+        foreach ($primity_result as $primity_objet) {
+            $objest[] = $this->toCategory($primity_objet);
+        }
+
+        return $objest;
     }
 
     public function insert(Category $category) : void {

@@ -1,11 +1,11 @@
 <?php
 
 include_once $_SERVER["DOCUMENT_ROOT"].'/src/Controller/ViewController.php';
-use Src\Service\Platform\PlatformSearchService;
+use Src\Service\Platform\PlatformSearchByCriterialService;
 final readonly class AdminPanelPlatformViewController extends ViewController{
-    private PlatformSearchService $service;
+    private PlatformSearchByCriterialService $service;
     public function __construct(){
-        $this->service = new PlatformSearchService();
+        $this->service = new PlatformSearchByCriterialService();
         parent::__construct("Admin/panelPlatform");
     }
 
@@ -17,7 +17,7 @@ final readonly class AdminPanelPlatformViewController extends ViewController{
         }
         $limit = 6;
         $ofset = ($page - 1) * $limit; 
-        $platform = $this->service->Search();
+        $platform = $this->service->searchByCriterial($limit,$ofset);
         $data = [
             "page" => $page,
             "platform" => $platform

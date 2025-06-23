@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="/src/Views/Entertainment/EntertainmentStyles/update_form.css">
 </head>
 <body>
-
+<a href="/admin/panel/1" class="btn btn-outline-secondary btn-sm position-absolute" style="top: 0.5rem; right: 0.5rem;">
+  <i class="bi bi-arrow-left"></i> Volver
+</a>
   <div class="form-container">
     <h2><i class="bi bi-pencil-square"></i> Editar Pelicula</h2>
     <form method="POST" action="/entertainments/<?php echo $data["entertainment"]->id() ?>">
