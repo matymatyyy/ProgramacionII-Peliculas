@@ -8,7 +8,7 @@ body::-webkit-scrollbar { /* desabilitar la visibilidad del scroll */
 }
 
 .navBar{
-    background: #222;
+    background-image: url('/src/Views/Entertainment/image/navbar-background.png');
     display: flex;
     width: 100%;
     height: 10%;
@@ -18,25 +18,35 @@ body::-webkit-scrollbar { /* desabilitar la visibilidad del scroll */
 } 
 
 .logo-nav{
-    width: 3em;
-    height: 2em;
+    width: 59px;
+    height: 59px;
+    display: inline-flex;
+    margin: 1.2em;
+    padding-left: 14px;
 }
 
 .text-nav{
     margin: 1.2em;
-    color: white;
+    color: rgb(0, 0, 0);
     display: inline-flex;
+    padding-left: 240px;
+    padding-top: 20px;
+}
+
+.nav-item2 {
+    padding-left: 160px;
 }
 
 .text-nav a {
-    color: #aaa;
+    color: #c02b2b;
     text-decoration: none;
     margin: 0 10px;
     font-size: 18px;
 }
 
 .text-nav a:hover {
-    color: white;
+    color: rgb(173, 173, 173);
+    cursor: pointer;
 }
 
 .seccion{
@@ -150,8 +160,10 @@ body::-webkit-scrollbar { /* desabilitar la visibilidad del scroll */
 }
 
 .image-detail{
-    width: 100%;
-    height: 100%;
+    margin-top: 50px;
+    width: 269.844px;
+    height: 400.09px;
+    /*height: 50%;*/
     object-fit: cover; /* o 'contain' */
     object-position: center;
 }

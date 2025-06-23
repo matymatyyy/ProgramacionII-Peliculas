@@ -1,8 +1,8 @@
 <nav class="navBar">
-    <div class="text-nav">
-        <a><img class="logo-nav" src="/src/Views/Entertainment/image/logo.png"></a>
+    <a><img class="logo-nav" src="/src/Views/Entertainment/image/logo.png"></a>
+    <div class="text-nav"> 
         <a >Peliculas</a>
-        <a >Estrenos</a>
+        <a class="nav-item2">Estrenos</a>
     </div> <!-- falta el MenuHamburguesa, no anda -->
     <p class="MenuHambur">☰</p>
     <ul class="hidden">

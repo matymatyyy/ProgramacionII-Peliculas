@@ -6,7 +6,7 @@ services:
   php-apache:
     build: './build/php'
     restart: unless-stopped
-    container_name: programacionIII-chacabuco.php-apache
+    container_name: programacionnIII-chacabuco.php-apache
     tty: true
     depends_on:
       - mysql
@@ -22,7 +22,7 @@ services:
   mysql:
     image: mysql:5
     restart: unless-stopped
-    container_name: programacionIII-chacabuco.mysql
+    container_name: programacionnIII-chacabuco.mysql
     tty: true
     ports:
       - "3310:3306"
@@ -39,7 +39,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
-    container_name: programacionIII-chacabuco.phpmyadmin
+    container_name: programacionnIII-chacabuco.phpmyadmin
     tty: true
     depends_on:
       - mysql

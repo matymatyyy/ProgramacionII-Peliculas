@@ -19,7 +19,7 @@ final readonly class EntertainmentModel extends DatabaseModel{
                             E.qualification,
                             E.image
                         FROM
-                            entertainment E
+                            entertainment E                         
                         WHERE E.id =:id
                         SELECT_QUERY;
     
@@ -62,9 +62,24 @@ final readonly class EntertainmentModel extends DatabaseModel{
         $query= <<<INSERT_QUERY
                         INSERT INTO
                             entertainment
-                        (type,release_date,ending,name,description,qualification,id_category,id_platform,image)
+                        (type,
+                        release_date,
+                        ending,name,
+                        description,
+                        qualification,
+                        id_category,
+                        id_platform,
+                        image)
                             VALUES
-                        (:type, :release_date, :ending, :name, :description, :qualification, :id_category, :id_platform,:image)
+                        (:type, 
+                        :release_date, 
+                        :ending, 
+                        :name, 
+                        :description, 
+                        :qualification, 
+                        :id_category, 
+                        :id_platform,
+                        :image)
                         INSERT_QUERY;
     
         $parameters=[
@@ -87,7 +102,15 @@ final readonly class EntertainmentModel extends DatabaseModel{
                         UPDATE
                             entertainment
                         SET
-                            type= :type, release_date= :release_date, ending= :ending, name= :name, description= :description, qualification= :qualification, id_category= :id_category, id_platform= :id_platform, image= :image
+                            type= :type, 
+                            release_date= :release_date, 
+                            ending= :ending, 
+                            name= :name, 
+                            description= :description, 
+                            qualification= :qualification, 
+                            id_category= :id_category, 
+                            id_platform= :id_platform, 
+                            image= :image
                         WHERE
                             id = :id
                         UPDATE_QUERY;

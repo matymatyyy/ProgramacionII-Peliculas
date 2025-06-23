@@ -19,11 +19,44 @@ final class Entertainment{
         private int $id_platform 
     ){}
 
-    public static function create(int $type, DateTime $relase_date, string $ending,string $image, string $name, string $description, int $qualification, int $id_category=1, int $id_platform=1):self{
-        return new self(null,$type,$relase_date,$ending,$image,$name,$description,$qualification,$id_category,$id_platform);
+    public static function create(
+        int $type, 
+        DateTime $relase_date, 
+        string $ending,
+        string $image, 
+        string $name, 
+        string $description, 
+        int $qualification, 
+        int $id_category=1, 
+        int $id_platform=1
+        ): self{
+            
+        return new self(
+            null,
+            $type,
+            $relase_date,
+            $ending,
+            $image,
+            $name,
+            $description,
+            $qualification,
+            $id_category,
+            $id_platform
+        );
     }
 
-    public function modify(int $type, DateTime $release_date, string $ending,string $image , string $name, string $description, int $qualification, int $id_category=1, int $id_platform=1): void{
+    public function modify(
+        int $type, 
+        DateTime $release_date, 
+        string $ending,
+        string $image, 
+        string $name, 
+        string $description, 
+        int $qualification, 
+        int $id_category=1, 
+        int $id_platform=1
+        ): void{
+            
         $this->name= $name;
         $this->type= $type;
         $this->release_date= $release_date ;
