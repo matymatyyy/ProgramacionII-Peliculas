@@ -1,11 +1,12 @@
-<?php 
+<?php
 
 namespace Src\Model\People;
 
 use Src\Model\DatabaseModel;
 use Src\Entity\People\People;
 
-final readonly class PeopleModel extends DatabaseModel {
+final readonly class PeopleModel extends DatabaseModel
+{
 
     public function find(int $id): ?People
     {
@@ -26,7 +27,7 @@ final readonly class PeopleModel extends DatabaseModel {
         ];
 
         $result = $this->primitiveQuery($query, $parameters);
-        
+
         return $this->toDomain($result[0] ?? null);
     }
 
@@ -46,7 +47,7 @@ final readonly class PeopleModel extends DatabaseModel {
         $primitiveResults = $this->primitiveQuery($query);
 
         $objectResults = [];
-        
+
         foreach ($primitiveResults as $primitiveResult) {
             $objectResults[] = $this->toDomain($primitiveResult);
         }
@@ -54,7 +55,7 @@ final readonly class PeopleModel extends DatabaseModel {
         return $objectResults;
     }
 
-    private function toDomain(?array $primitive): ? People
+    private function toDomain(?array $primitive): ?People
     {
         if ($primitive === null) {
             return null;

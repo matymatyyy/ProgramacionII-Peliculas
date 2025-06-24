@@ -14,6 +14,7 @@ if ($data['Entertainment']->type() == 1) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,7 @@ if ($data['Entertainment']->type() == 1) {
     <link rel="stylesheet" href="/src/Views/Entertainment/EntertainmentStyles/list.css">
     <link rel="stylesheet" href="/src/Views/Entertainment/EntertainmentStyles/detail.css">
 </head>
+
 <body>
     <?php include_once("shared/navBar.php") ?>
    

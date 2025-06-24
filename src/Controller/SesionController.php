@@ -4,7 +4,7 @@ readonly class SesionController{
 
     public function login(int $id): void{
         $_SESSION["user_id"] = $id;
-        header("Location: /admin/panel");
+        header("Location: /admin/panel/1");
         die();
     }
 
