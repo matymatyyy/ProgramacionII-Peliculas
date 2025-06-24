@@ -21,7 +21,9 @@ final readonly class EntertainmentPostController extends SesionController {
         $ending= $_POST["ending"];
         $description = $_POST["description"];
         $qualification = $_POST["qualification"];
-        $this->service->create($type,$relase_date,$ending,$name,$description,$qualification,$image);
+        $id_category = $_POST["id_category"] ?? 1;
+        $id_platform = $_POST["id_platform"] ?? 1;
+        $this->service->create($type,$relase_date,$ending,$name,$description,$qualification,$image,$id_category,$id_platform);
         header('Location: http://localhost:91/admin/panel/1');
         exit();
     }

@@ -5,10 +5,12 @@ use Src\Entity\Entertainment\Entertainment;
 use Src\Model\DatabaseModel;
 use DateTime;
 
-final readonly class EntertainmentModel extends DatabaseModel{
+final readonly class EntertainmentModel extends DatabaseModel
+{
 
-    public function find(int $id): ? Entertainment{
-        $query= <<<SELECT_QUERY
+    public function find(int $id): ?Entertainment
+    {
+        $query = <<<SELECT_QUERY
                         SELECT
                             E.id,
                             E.type,
@@ -22,17 +24,18 @@ final readonly class EntertainmentModel extends DatabaseModel{
                             entertainment E
                         WHERE E.id =:id
                         SELECT_QUERY;
-    
-        $parameters=[
+
+        $parameters = [
             "id" => $id
         ];
 
-        $result = $this->primitiveQuery($query,$parameters);
+        $result = $this->primitiveQuery($query, $parameters);
 
         return $this->toEntertainment($result[0] ?? null);
     }
 
-    public function search(): array{
+    public function search(): array
+    {
         $query = <<<SELECT_QUERY
                     SELECT
                             E.id,
@@ -47,15 +50,15 @@ final readonly class EntertainmentModel extends DatabaseModel{
                             entertainment E
                 SELECT_QUERY;
 
-            $primity_result = $this->primitiveQuery($query);
+        $primity_result = $this->primitiveQuery($query);
 
-            $objest=[];
-        
-            foreach ($primity_result as $primity_objet) {
-                $objest[] = $this->toEntertainment($primity_objet);
-            }
+        $objest = [];
 
-            return $objest;
+        foreach ($primity_result as $primity_objet) {
+            $objest[] = $this->toEntertainment($primity_objet);
+        }
+
+        return $objest;
     }
 
     public function searchByCriterial(int $limit, int $ofset): array
@@ -75,21 +78,21 @@ final readonly class EntertainmentModel extends DatabaseModel{
                     LIMIT $limit OFFSET $ofset
                 SELECT_QUERY;
 
-            $primity_result = $this->primitiveQuery($query);
+        $primity_result = $this->primitiveQuery($query);
 
-           $objest = [];
-        
-            foreach ($primity_result as $primity_objet) {
-                $objest[] = $this->toEntertainment($primity_objet);
-            }
+        $objest = [];
 
-            return $objest;
+        foreach ($primity_result as $primity_objet) {
+            $objest[] = $this->toEntertainment($primity_objet);
+        }
+
+        return $objest;
     }
 
-    public function searchForUpdate():array{
+    public function searchComplet(): array
+    {
         $query = <<<SELECT_QUERY
                     SELECT
-                        COUNT(E.id) as total,
                         E.id,
                         E.type,
                         E.release_date,
@@ -98,7 +101,9 @@ final readonly class EntertainmentModel extends DatabaseModel{
                         E.description,
                         E.qualification,
                         E.image,
+                        C.id AS category_id,
                         C.name AS category_name,
+                        P.id AS platform_id,
                         P.name AS platform_name,
                         P.logo AS platform_logo,
                         P.website AS platform_website
@@ -110,43 +115,45 @@ final readonly class EntertainmentModel extends DatabaseModel{
                         platform P ON E.id_platform = P.id
                 SELECT_QUERY;
 
-            $primity_result = $this->primitiveQuery($query);
+        $primity_result = $this->primitiveQuery($query);
 
-           $objest = [];
-        
-            foreach ($primity_result as $primity_objet) {
-                $objest[] = $this->toEntertainment($primity_objet);
-            }
+        $objest = [];
 
-            return $objest;
+        foreach ($primity_result as $primity_objet) {
+            $objest[] = $this->toEntertainment($primity_objet);
+        }
+
+        return $objest;
     }
 
-    public function insert(Entertainment $entretainment): void{
-        $query= <<<INSERT_QUERY
+    public function insert(Entertainment $entretainment): void
+    {
+        $query = <<<INSERT_QUERY
                         INSERT INTO
                             entertainment
                         (type,release_date,ending,name,description,qualification,id_category,id_platform,image)
                             VALUES
                         (:type, :release_date, :ending, :name, :description, :qualification, :id_category, :id_platform,:image)
                         INSERT_QUERY;
-    
-        $parameters=[
-            "type" =>$entretainment->type(),
+
+        $parameters = [
+            "type" => $entretainment->type(),
             "release_date" => $entretainment->release_date()->format("Y-m-d H:i:s"),
             "ending" => $entretainment->ending(),
             "name" => $entretainment->name(),
             "description" => $entretainment->description(),
             "qualification" => $entretainment->qualification(),
-            "id_category"  => $entretainment->id_category(),
+            "id_category" => $entretainment->id_category(),
             "id_platform" => $entretainment->id_platform(),
             "image" => $entretainment->image()
         ];
 
-        $this->primitiveQuery($query,$parameters);
+        $this->primitiveQuery($query, $parameters);
     }
 
-    public function update(Entertainment $entertainment) : void {
-        $query = <<< UPDATE_QUERY
+    public function update(Entertainment $entertainment): void
+    {
+        $query = <<<UPDATE_QUERY
                         UPDATE
                             entertainment
                         SET
@@ -167,11 +174,12 @@ final readonly class EntertainmentModel extends DatabaseModel{
             "id" => $entertainment->id()
         ];
 
-        $this->primitiveQuery($query,$parameters);
+        $this->primitiveQuery($query, $parameters);
     }
 
-    public function delete(int $id): void{
-        $query = <<< DELETE_QUERY
+    public function delete(int $id): void
+    {
+        $query = <<<DELETE_QUERY
                         DELETE FROM
                             entertainment
                         WHERE
@@ -181,12 +189,13 @@ final readonly class EntertainmentModel extends DatabaseModel{
             "id" => $id
         ];
 
-        $this->primitiveQuery($query,$parameters);
-        
+        $this->primitiveQuery($query, $parameters);
+
     }
 
-    private function toEntertainment(?array $primitive): ?Entertainment{
-        if($primitive === null){
+    private function toEntertainment(?array $primitive): ?Entertainment
+    {
+        if ($primitive === null) {
             return null;
         }
 

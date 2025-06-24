@@ -5,8 +5,10 @@ namespace Src\Model\Platform;
 use Src\Entity\Platform\Platform;
 use Src\Model\DatabaseModel;
 
-final readonly class PlatformModel extends DatabaseModel{
-    public function find(int $id): Platform{
+final readonly class PlatformModel extends DatabaseModel
+{
+    public function find(int $id): Platform
+    {
         $query = <<<SELECT_QUERY
                     SELECT
                         P.id,
@@ -24,7 +26,7 @@ final readonly class PlatformModel extends DatabaseModel{
         ];
 
         $result = $this->primitiveQuery($query, $parameters);
-        
+
         return $this->toPlatform($result[0] ?? null);
     }
 
@@ -32,7 +34,8 @@ final readonly class PlatformModel extends DatabaseModel{
      * Summary of Search
      * @return Platform[]
      */
-    public function Search(): ?array{
+    public function Search(): ?array
+    {
         $query = <<<SELECT_QUERY
                     SELECT
                         P.id,
@@ -44,11 +47,11 @@ final readonly class PlatformModel extends DatabaseModel{
                 SELECT_QUERY;
 
         $result = $this->primitiveQuery($query);
-        
-        $objetsResult= [];
+
+        $objetsResult = [];
 
         foreach ($result as $objets) {
-            $objetsResult[]= $this->toPlatform($objets);
+            $objetsResult[] = $this->toPlatform($objets);
         }
 
         return $objetsResult;
@@ -68,17 +71,18 @@ final readonly class PlatformModel extends DatabaseModel{
                 SELECT_QUERY;
 
         $result = $this->primitiveQuery($query);
-        
-        $objetsResult= [];
+
+        $objetsResult = [];
 
         foreach ($result as $objets) {
-            $objetsResult[]= $this->toPlatform($objets);
+            $objetsResult[] = $this->toPlatform($objets);
         }
 
         return $objetsResult;
     }
 
-    public function insert(Platform $platform): void{
+    public function insert(Platform $platform): void
+    {
         $query = <<<INSERT_QUERY
                     INSERT INTO
                         platform
@@ -87,17 +91,18 @@ final readonly class PlatformModel extends DatabaseModel{
                         (:name, :logo, :website)
                 INSERT_QUERY;
 
-        $parameters=[
+        $parameters = [
             "name" => $platform->name(),
             "logo" => $platform->logo(),
             "website" => $platform->website()
         ];
 
-        $this->primitiveQuery($query,$parameters);
+        $this->primitiveQuery($query, $parameters);
     }
 
-    public function update(Platform $platform): void{
-        $query =<<< UPDATE_QUERY
+    public function update(Platform $platform): void
+    {
+        $query = <<<UPDATE_QUERY
                         UPDATE
                             platform
                         SET
@@ -106,18 +111,29 @@ final readonly class PlatformModel extends DatabaseModel{
                             id = :id
                         UPDATE_QUERY;
 
-        $parameters=[
+        $parameters = [
             "name" => $platform->name(),
             "logo" => $platform->logo(),
             "website" => $platform->website(),
             "id" => $platform->id()
         ];
 
-        $this->primitiveQuery($query,$parameters);
+        $this->primitiveQuery($query, $parameters);
     }
 
-    public function delete(int $id):void{
-        $query = <<< DELETE_QUERY
+    public function delete(int $id): void
+    {
+        $query1 = <<<UPDATE_QUERY
+                        UPDATE entertainment SET id_platform = NULL WHERE id_platform = :id1;
+                    UPDATE_QUERY;
+
+        $parameters1 = [
+            "id1" => $id
+        ];
+
+        $this->primitiveQuery($query1, $parameters1);
+
+        $query = <<<DELETE_QUERY
                         DELETE FROM
                             platform
                         WHERE
@@ -127,9 +143,10 @@ final readonly class PlatformModel extends DatabaseModel{
             "id" => $id
         ];
 
-        $this->primitiveQuery($query,$parameters);
+        $this->primitiveQuery($query, $parameters);
     }
-    public function toPlatform(array $primitive): ?Platform{
+    public function toPlatform(array $primitive): ?Platform
+    {
         if ($primitive === null) {
             return null;
         }

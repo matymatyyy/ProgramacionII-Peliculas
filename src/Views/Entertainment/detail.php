@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entertainment</title>
     <link rel="stylesheet" href="/src/Views/Entertainment/EntertainmentStyles/list.css">
 </head>
+
 <body>
     <?php include_once("shared/navBar.php") ?>
     <div class="split-screen">
@@ -20,11 +22,11 @@
                 <button>ver ahora</button>
             </div>
         </div>
-        
+
         <div class="right-pane">
-            <img class="image-detail" src="<?php echo $data["Entertainment"]->image() ?>" >
+            <img class="image-detail" src="<?php echo $data["Entertainment"]->image() ?>">
         </div>
-    
+
     </div>
     <?php include_once("shared/footer.php") ?>
 </body>

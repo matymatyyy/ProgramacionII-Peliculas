@@ -1,11 +1,12 @@
-<?php 
+<?php
 
 namespace Src\Model\Domain;
 
 use Src\Model\DatabaseModel;
 use Src\Entity\Domain\Domain;
 
-final readonly class DomainModel extends DatabaseModel {
+final readonly class DomainModel extends DatabaseModel
+{
 
     public function find(int $id): ?Domain
     {
@@ -25,7 +26,7 @@ final readonly class DomainModel extends DatabaseModel {
         ];
 
         $result = $this->primitiveQuery($query, $parameters);
-        
+
         return $this->toDomain($result[0] ?? null);
     }
 
@@ -44,7 +45,7 @@ final readonly class DomainModel extends DatabaseModel {
         $primitiveResults = $this->primitiveQuery($query);
 
         $objectResults = [];
-        
+
         foreach ($primitiveResults as $primitiveResult) {
             $objectResults[] = $this->toDomain($primitiveResult);
         }
@@ -52,24 +53,26 @@ final readonly class DomainModel extends DatabaseModel {
         return $objectResults;
     }
 
-    public function insert(Domain $domain): void{
-        $query=<<< INSERT_QUERY
+    public function insert(Domain $domain): void
+    {
+        $query = <<<INSERT_QUERY
                         INSERT INTO
                             domain
                         (name, code)
                             VALUES
                         (:name, :code)
                     INSERT_QUERY;
-        $parameters=[
+        $parameters = [
             "name" => $domain->name(),
             "code" => $domain->code()
         ];
-        
+
         $this->primitiveQuery($query, $parameters);
     }
 
-    public function update(Domain $domain): void{
-        $query = <<< UPDATE_QUERY
+    public function update(Domain $domain): void
+    {
+        $query = <<<UPDATE_QUERY
                         UPDATE
                             domain
                         SET
@@ -84,7 +87,7 @@ final readonly class DomainModel extends DatabaseModel {
             "id" => $domain->id()
         ];
 
-        $this->primitiveQuery($query,$parameters);
+        $this->primitiveQuery($query, $parameters);
     }
 
     private function toDomain(?array $primitive): ?Domain

@@ -20,8 +20,10 @@ final readonly class EntertainmentPutController extends SesionController{
         $name = $_POST["name"] ?? null;
         $description = $_POST["description"] ?? null;
         $qualification = $_POST["qualification"] ?? null;
+        $id_category = $_POST["id_category"] ?? 1;
+        $id_platform = $_POST["id_platform"] ?? 1;
 
-        $this->service->update($id,$type, $release_date, $ending, $name, $description, $qualification, $image);
+        $this->service->update($id,$type, $release_date, $ending, $name, $description, $qualification, $image,$id_category,$id_platform);
         header('Location: http://localhost:91/admin/panel/1');
         exit();
     }

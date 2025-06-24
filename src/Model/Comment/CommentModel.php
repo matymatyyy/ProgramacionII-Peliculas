@@ -6,9 +6,11 @@ use Src\Entity\Comment\Comment;
 use Src\Model\DatabaseModel;
 use DateTime;
 
-final readonly class CommentModel extends DatabaseModel{
-    public function find(int $id): ?Comment{
-            $query = <<<SELECT_QUERY
+final readonly class CommentModel extends DatabaseModel
+{
+    public function find(int $id): ?Comment
+    {
+        $query = <<<SELECT_QUERY
                         SELECT
                             C.id,
                             C.qualification,
@@ -19,21 +21,22 @@ final readonly class CommentModel extends DatabaseModel{
                         WHERE
                             C.id = :id
                     SELECT_QUERY;
-    
-            $parameters = [
-                'id' => $id
-            ];
-    
-            $result = $this->primitiveQuery($query, $parameters);
-            
-            return $this->toComment($result[0] ?? null);
+
+        $parameters = [
+            'id' => $id
+        ];
+
+        $result = $this->primitiveQuery($query, $parameters);
+
+        return $this->toComment($result[0] ?? null);
     }
 
     /**
      * Summary of search
      * @return Comment[]
      */
-    public function search(): array{
+    public function search(): array
+    {
         $query = <<<SELECT_QUERY
                         SELECT
                             C.id,
@@ -46,16 +49,17 @@ final readonly class CommentModel extends DatabaseModel{
 
         $result = $this->primitiveQuery($query);
 
-        $arrayObjets=[];
+        $arrayObjets = [];
 
         foreach ($result as $objets) {
-            $arrayObjets[]=$this->toComment($objets);
+            $arrayObjets[] = $this->toComment($objets);
         }
 
         return $arrayObjets;
     }
 
-    private function toComment(? array $primity): ?Comment{
+    private function toComment(?array $primity): ?Comment
+    {
         if ($primity === null) {
             return null;
         }

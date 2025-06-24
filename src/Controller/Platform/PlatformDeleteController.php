@@ -4,7 +4,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/src/Controller/SesionController.php';
 use Src\Service\Platform\PlatformDeleterService;
 
 final readonly class PlatformDeleteController extends SesionController {
-    private  $service;
+    private PlatformDeleterService $service;
 
     public function __construct() {
         $this->service = new PlatformDeleterService();
