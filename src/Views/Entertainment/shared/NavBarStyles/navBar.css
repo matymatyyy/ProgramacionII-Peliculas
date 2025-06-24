@@ -1,0 +1,55 @@
+.navBar{
+    background-image: url('/src/Views/Entertainment/image/navbar-background.png');
+    display: flex;
+    width: 100%;
+    height: 10%;
+    position: fixed; /* Fija la navbar en la pantalla */
+    top: 0;          /* La pega arriba */
+    z-index: 1000; /* para que el hover no se interponga */
+} 
+
+.logo-nav{
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 355px;
+}
+
+.text-nav{
+    margin: 1.2em;
+    color: rgb(0, 0, 0);
+    display: inline-flex;
+    padding-left: 240px;
+    padding-top: 20px;
+}
+
+.nav-item2 {
+    padding-left: 160px;
+}
+
+.text-nav a {
+    color: #c02b2b;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.text-nav a:hover {
+    color: rgb(173, 173, 173);
+    cursor: pointer;
+}
+
+.MenuHambur{
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: none;
+    margin: 0 10px;
+}
+
+.hidden{ /* nadie usa esto */
+    display: none;
+    
+}

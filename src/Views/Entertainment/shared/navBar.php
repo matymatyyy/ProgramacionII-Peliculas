@@ -1,6 +1,6 @@
 <nav class="navBar">
-    <a><img class="logo-nav" src="/src/Views/Entertainment/image/logo.png"></a>
-    <div class="text-nav"> 
+    <a href="/entertainments"><img class="logo-nav" src="/src/Views/Entertainment/image/logo.png"></a>
+    <div class="text-nav hidden"> 
         <a >Peliculas</a>
         <a class="nav-item2">Estrenos</a>
     </div> <!-- falta el MenuHamburguesa, no anda -->
@@ -17,4 +17,4 @@
         </li>
     </ul>
 </nav>
-<script src="/src/Views/Entertainment/EntertainmentScript/navBar.js"></script>
+<script src="/src/Views/Entertainment/Shared/NavBarScripts/navBar.js"></script>

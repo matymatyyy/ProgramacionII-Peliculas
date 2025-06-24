@@ -1,3 +1,34 @@
+@font-face {
+  font-family: 'Acknowledgement', sans-serif;
+  src: url('https://fonts.cdnfonts.com/css/acknowledgement');
+}
+
+@font-face {
+    font-family: 'Bhlingglers', sans-serif;
+    src: url('https://fonts.cdnfonts.com/css/bhlingglers');
+}
+
+@font-face {
+    font-family: 'Nabla', sans-serif;
+    src: url('https://fonts.cdnfonts.com/css/nabla');
+}
+
+@font-face {
+    font-family: 'Red Hat Mono', sans-serif;
+    src: url('https://fonts.cdnfonts.com/css/red-hat-mono');
+}
+
+p {
+    color: rgb(201, 201, 201);
+}
+
+h3 {
+    color: rgb(201, 201, 201);
+}
+
+h2 {
+    color: rgb(201, 201, 201);
+}
 .right-pane {
   display: block;
   flex: 0.3;
@@ -6,10 +37,9 @@
 }
 
 .image-detail{
-    margin-top: 50px;
+    margin-top: 40px;
     width: 269.844px;
     height: 400.09px;
-    /*height: 50%;*/
     object-fit: cover; /* o 'contain' */
     object-position: center;
 }
@@ -19,18 +49,9 @@
 }
 
 
-.btn-img {
-  width: 115.641px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.btn-img:hover {
-    opacity: 0.5;
-}
-
 .below-image {
     font-size: 220%;
+    height: 27px;
 }
 
 img {
@@ -40,14 +61,103 @@ img {
 .container {
     display: grid;
     column-gap: 10px;
-    grid-template-columns: 350px 300px 350px 300px;
+    height: 960px;
+    grid-template-columns: 320px 400px 350px 300px;
 }
 
 .title-column {
-    padding-top: 30px;
+    padding-top: 0px;
 }
 
 
 .title {
-    font-size: 52px;
+    color: white;
+    font-family: 'Acknowledgement', sans-serif;
+    font-size: 35px;
+    margin-top: 35px;
+    padding-top: 25px;
+    width: 7000px;
 }
+
+.type {
+    color: white;
+    font-family: 'Acknowledgement', sans-serif;
+    margin-top: 35px;   
+    font-size: 40px; 
+    height: 18px;
+}
+
+.category {
+    margin-top: 10px;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.897);
+    padding-top: 20px;
+    font-family: 'Bhlingglers', sans-serif;
+    font-size: 96%;
+    height: 456px;
+}
+
+.below-description {
+    font-size: 220%;
+}
+
+.clasificacion {
+    font-family: 'Nabla', sans-serif;
+    padding-left: 240px;
+    margin-bottom: 10px;
+    margin-top: 24px;
+}
+
+.user-icon {
+    height: 15px;
+    width: 15px;
+}
+
+.user-number {
+    padding-left: 20px;
+    font-family: 'Red Hat Mono', sans-serif;
+    color: lightgray;
+    font-size: 15px;
+}
+
+.date {
+    color: rgba(255, 255, 255, 0.897);
+    font-family: 'Bhlingglers', sans-serif;
+    padding-left: 190px;
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;;
+}
+
+.state {
+    position: relative;
+    color: rgba(255, 255, 255, 0.897);
+    font-family: 'Bhlingglers', sans-serif;
+    padding-left: 190px;
+    padding-bottom: 2px;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.btn-div {
+    padding-left: 190px;
+}
+
+.btn-img {
+  width: 90px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.btn-img:hover {
+    opacity: 0.5;
+}
+
+body {
+    background-image: url('/src/Views/Entertainment/image/details-background.png');
+    height: auto;
+}
+

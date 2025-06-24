@@ -1,5 +1,7 @@
 <html>
     <head>
+        <link rel="stylesheet" href="/src/Views/Entertainment/Shared/NavBarStyles/navBar.css">
+        <link rel="stylesheet" href="/src/Views/Entertainment/Shared/FooterStyles/footer.css">
         <link rel="stylesheet" href="/src/Views/Entertainment/EntertainmentStyles/list.css">
     </head>
     <body>
