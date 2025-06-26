@@ -21,14 +21,30 @@
       <input class="form-control" placeholder="Nombre" type="text" name="name"
         value="<?php echo $data["entertainment"]->name() ?>" required>
 
-      <input class="form-control" placeholder="Tipo" type="text" name="type"
-        value="<?php echo $data["entertainment"]->type() ?>" required>
+      <!--<input class="form-control" placeholder="Tipo" type="text" name="type"
+        value="<?php echo $data["entertainment"]->type() ?>" required> -->
+
+      <select class="form-select mb-3" name="type" required>
+        <option value="" disabled <?php echo $data["entertainment"]->type() == $data["entertainment"]->type() ? "selected" : ""; ?>>
+          Seleccione un tipo
+        </option>
+        <option value="1">Pelicula</option>
+        <option value="2">Serie</option>
+      </select>
 
       <input class="form-control" placeholder="Fecha de salida" type="date" name="release_date"
         value="<?php echo $data["entertainment"]->release_date()->format("Y-m-d") ?>" required>
 
-      <input class="form-control" placeholder="Final" type="text" name="ending"
-        value="<?php echo $data["entertainment"]->ending() ?>">
+      <!--<input class="form-control" placeholder="Final" type="text" name="ending"
+        value="<?php echo $data["entertainment"]->ending() ?>"> -->
+      <select class="form-select mb-3" name="ending" required>
+        <option value="" disabled <?php echo $data["entertainment"]->ending() == $data["entertainment"]->ending() ? "selected" : ""; ?>>
+          Seleccione un estado
+        </option>
+        <option value="En emision">En emision</option>
+        <option value="Finalizado">Finalizado</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>  
 
       <input class="form-control" placeholder="Descripción" type="text" name="description"
         value="<?php echo $data["entertainment"]->description() ?>">
