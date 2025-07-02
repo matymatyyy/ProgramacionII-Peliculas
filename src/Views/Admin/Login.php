@@ -20,7 +20,7 @@
         <div class="forgot">
         </div>
         <div class="input-submit">
-            <button class="submit-btn" id="submit">Iniciar Sesion</button>
+            <button class="submit-btn" id="submit"><span class="btn-text">Iniciar Sesion</span></button>
         </div>
     </form>
 </body>

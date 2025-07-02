@@ -2,10 +2,11 @@
 .simple-footer {
     background: #222;
     color: white;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 1.8em;
+    padding-bottom: 1.8em;
     text-align: center;
     height: auto;
+    width: 120em;
 }
 
 .footer-content {

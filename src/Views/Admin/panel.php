@@ -70,7 +70,7 @@
                                         <td><?php echo $entertaiments->name() ?></td>
                                         <td><?php echo $entertaiments->type() ?></td>
                                         <td><?php echo $entertaiments->ending() ?></td>
-                                        <td><?php echo $entertaiments->release_date()->format("Y-m-d H:i:s") ?></td>
+                                        <td><?php echo $entertaiments->release_date()->format("d/m/Y") ?></td>
                                         <td><img src="<?php echo $entertaiments->image() ?>" class="rounded-circle"
                                                 alt="avatar"></td>
                                         <td>

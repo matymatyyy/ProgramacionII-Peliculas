@@ -50,8 +50,10 @@ img {
 .container {
     display: grid;
     column-gap: 10px;
-    height: 960px;
+    width: 140%;
+    height: 55.6em;
     grid-template-columns: 320px 400px 350px 300px;
+    overscroll-behavior: contain;
 }
 
 .title-column {
@@ -62,7 +64,7 @@ img {
 .title {
     color: white;
     font-family: 'Acknowledgement', sans-serif;
-    font-size: 40px;
+    font-size: 2.5em;
     margin-top: 35px;
     padding-top: 25px;
     width: 7000px;
@@ -72,7 +74,7 @@ img {
     color: white;
     font-family: 'Acknowledgement', sans-serif;
     margin-top: 35px;   
-    font-size: 40px; 
+    font-size: 2.5em; 
     height: 18px;
     text-align: center;
 }
@@ -97,8 +99,8 @@ img {
 .clasificacion {
     font-family: 'Nabla', sans-serif;
     padding-left: 240px;
-    margin-bottom: 10px;
-    margin-top: 24px;
+    margin-bottom: min(10px, 0px);
+    margin-top: min(24px, 18px);
 }
 
 .user-icon {
@@ -117,7 +119,7 @@ img {
     color: rgba(255, 255, 255, 0.897);
     font-family: 'Bhlingglers', sans-serif;
     padding-left: 190px;
-    font-size: 30px;
+    font-size: 1.9rem;
     margin-top: 0px;
     margin-bottom: 10px;;
 }
@@ -128,7 +130,7 @@ img {
     font-family: 'Bhlingglers', sans-serif;
     padding-left: 190px;
     padding-bottom: 2px;
-    font-size: 30px;
+    font-size: 1.9rem;
     margin-top: 15px;
     margin-bottom: 0px;
 }
@@ -149,6 +151,7 @@ img {
 
 body {
     background-image: url('/src/Views/Entertainment/image/details-background.png');
-    height: auto;
+    background-repeat: no-repeat;
 }
+
 
