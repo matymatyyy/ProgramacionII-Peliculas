@@ -7,8 +7,9 @@ body {
 
 .All {
     display: flex;
+    flex-wrap: wrap; /* Permite que los paneles se acomoden si no hay espacio */
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Panel izquierdo (inicialmente visible) */
@@ -62,7 +63,13 @@ body {
     flex: 1;
     background: rgb(24, 23, 23);
     padding: 20px;
+    width: 100%;
 }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
 
 .card {
   border-radius: 10px;
@@ -98,4 +105,55 @@ body {
 
 .menu-btn:hover{
   background-color: brown;
+}
+
+.mobile-menu-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+@media (max-width: 768px) {
+    .PanelLeft {
+        position: absolute;
+        left: -200px;
+        width: 200px;
+        height: 100%;
+        z-index: 1000;
+        flex: none;
+    }
+
+    .PanelLeft.show {
+        left: 0;
+    }
+
+    #toggleButton {
+        right: -40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .d-flex .form-control {
+        width: 100% !important;
+        margin-top: 0.5rem;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 768px) {
+    .table img {
+        width: 20px;
+        height: 20px;
+    }
 }

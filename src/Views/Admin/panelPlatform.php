@@ -14,6 +14,27 @@
         style="top: 0.5rem; right: 0.5rem;">
         <i class="bi bi-arrow-left"></i> Cerrar Sesion
     </a>
+    <button class="btn btn-secondary d-md-none mobile-menu-btn" id="mobileMenuBtn">
+        <i class="bi bi-list"></i> Menú
+    </button>
+    <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title">Navegación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body d-flex flex-column gap-3">
+                    <button class="btn btn-outline-light"
+                        onclick="window.location.href='http://localhost:91/admin/panel/1'">Peliculas</button>
+                    <button class="btn btn-outline-light"
+                        onclick="window.location.href='http://localhost:91/admin/panelCategory/1'">Categorias</button>
+                    <button class="btn btn-outline-light"
+                        onclick="window.location.href='http://localhost:91/admin/panelPlatform/1'">Plataformas</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="All">
         <div class="PanelLeft" id="panelLeft">
             <button id="toggleButton">

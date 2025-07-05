@@ -14,6 +14,30 @@
         style="top: 0.5rem; right: 0.5rem;">
         <i class="bi bi-arrow-left"></i> Cerrar Sesion
     </a>
+    
+    <button class="btn btn-secondary d-md-none mobile-menu-btn" id="mobileMenuBtn">
+        <i class="bi bi-list"></i> Menú
+    </button>
+    <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title">Navegación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body d-flex flex-column gap-3">
+                    <button class="btn btn-outline-light"
+                        onclick="window.location.href='http://localhost:91/admin/panel/1'">Peliculas</button>
+                    <button class="btn btn-outline-light"
+                        onclick="window.location.href='http://localhost:91/admin/panelCategory/1'">Categorias</button>
+                    <button class="btn btn-outline-light"
+                        onclick="window.location.href='http://localhost:91/admin/panelPlatform/1'">Plataformas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="All">
 
         <div class="PanelLeft" id="panelLeft">
@@ -51,68 +75,73 @@
                             <input type="text" class="form-control w-25" placeholder="Buscar">
                         </div>
 
-                        <table class="table table-striped align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nombre</th>
-                                    <th>tipo</th>
-                                    <th>final</th>
-                                    <th>fecha de saldia</th>
-                                    <th>imagen</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($data["entertaiments"] as $entertaiments) { ?>
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle">
+                                <thead class="table-light">
                                     <tr>
-                                        <td><?php echo $entertaiments->id() ?></td>
-                                        <td><?php echo $entertaiments->name() ?></td>
-                                        <td><?php echo $entertaiments->type() ?></td>
-                                        <td><?php echo $entertaiments->ending() ?></td>
-                                        <td><?php echo $entertaiments->release_date()->format("d/m/Y") ?></td>
-                                        <td><img src="<?php echo $entertaiments->image() ?>" class="rounded-circle"
-                                                alt="avatar"></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm"
-                                                onclick="window.location.href='http://localhost:91/entertainments/<?php echo $entertaiments->id() ?>'"><i
-                                                    class="bi bi-eye"></i></button>
-                                            <button class="btn btn-warning btn-sm"
-                                                onclick="window.location.href='http://localhost:91/admin/entertainments/update/<?php echo $entertaiments->id() ?>'"><i
-                                                    class="bi bi-pencil"></i></button>
-                                            <button class="btn btn-danger btn-sm"
-                                                onclick="eliminarItem(<?php echo $entertaiments->id() ?>,1)"><i
-                                                    class="bi bi-trash"></i></button>
-                                        </td>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>tipo</th>
+                                        <th>final</th>
+                                        <th>fecha de saldia</th>
+                                        <th>imagen</th>
+                                        <th>Acciones</th>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($data["entertaiments"] as $entertaiments) { ?>
+                                        <tr>
+                                            <td><?php echo $entertaiments->id() ?></td>
+                                            <td><?php echo $entertaiments->name() ?></td>
+                                            <td><?php echo $entertaiments->type() ?></td>
+                                            <td><?php echo $entertaiments->ending() ?></td>
+                                            <td><?php echo $entertaiments->release_date()->format("d/m/Y") ?></td>
+                                            <td><img src="<?php echo $entertaiments->image() ?>" class="rounded-circle"
+                                                    alt="avatar"></td>
+                                            <td>
+                                                <button class="btn btn-success btn-sm"
+                                                    onclick="window.location.href='http://localhost:91/entertainments/<?php echo $entertaiments->id() ?>'"><i
+                                                        class="bi bi-eye"></i></button>
+                                                <button class="btn btn-warning btn-sm"
+                                                    onclick="window.location.href='http://localhost:91/admin/entertainments/update/<?php echo $entertaiments->id() ?>'"><i
+                                                        class="bi bi-pencil"></i></button>
+                                                <button class="btn btn-danger btn-sm"
+                                                    onclick="eliminarItem(<?php echo $entertaiments->id() ?>,1)"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>
-                                Mostrando registros del
-                                <?php echo 1 + 6 * ($data["page"] - 1); ?>
-                                al
-                                <?php echo 6 * ($data["page"] - 1) + count($data["entertaiments"]); ?>
-                            </span>
-                            <nav>
-                                <ul class="pagination mb-0">
-                                    <?php $page = $data["page"];
-                                    if ($page > 1) { ?>
-                                        <li class="page-item"><a class="page-link" href="
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>
+                                    Mostrando registros del
+                                    <?php echo 1 + 6 * ($data["page"] - 1); ?>
+                                    al
+                                    <?php echo 6 * ($data["page"] - 1) + count($data["entertaiments"]); ?>
+                                </span>
+                                <nav>
+                                    <ul class="pagination mb-0">
+                                        <?php $page = $data["page"];
+                                        if ($page > 1) { ?>
+                                            <li class="page-item"><a class="page-link" href="
                                <?php echo "http://localhost:91/admin/panel/" . $page - 1 ?>">Anterior</a></li>
-                                    <?php } ?>
-                                    <li class="page-item active"><a class="page-link" href="#"><?php echo $page ?></a>
-                                    </li>
-                                    <?php if (count($data["entertaiments"]) > 5) { ?>
-                                        <li class="page-item"><a class="page-link"
-                                                href="<?php echo "http://localhost:91/admin/panel/" . $page + 1 ?>">Siguiente</a>
+                                        <?php } ?>
+                                        <li class="page-item active"><a class="page-link"
+                                                href="#"><?php echo $page ?></a>
                                         </li>
-                                    <?php } ?>
-                                </ul>
-                            </nav>
+                                        <?php if (count($data["entertaiments"]) > 5) { ?>
+                                            <li class="page-item"><a class="page-link"
+                                                    href="<?php echo "http://localhost:91/admin/panel/" . $page + 1 ?>">Siguiente</a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
+
+
 
                     </div>
                 </div>

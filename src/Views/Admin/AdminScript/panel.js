@@ -13,6 +13,11 @@ toggleButton.addEventListener("click", () => {
     }
 });
 
+document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+    const modal = new bootstrap.Modal(document.getElementById('mobileMenuModal'));
+    modal.show();
+});
+
 function eliminarItem(id, type) {
   if (!confirm("¿Estas seguro de eliminar el item " + id + "?")) return;
   let entidad = "";
